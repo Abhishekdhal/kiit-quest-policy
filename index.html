@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - KIIT Quest</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: block;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: white;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .effective-date {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .intro {
+            font-size: 1.1em;
+            margin-bottom: 35px;
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin: 35px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 25px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 2px solid #667eea30;
+        }
+        
+        .contact-card h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.05em;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            border-bottom-color: #667eea;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        .button-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .button-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="KIIT Quest logo" class="logo-img" onerror="this.style.display='none'">
+            <h1>Privacy Policy</h1>
+            <p>KIIT Quest Mobile Application</p>
+        </div>
+        
+        <div class="content">
+            <div class="effective-date">
+                📅 Effective Date: January 1, 2026 | Last Updated: January 1, 2026
+            </div>
+            
+            <p class="intro">
+                Welcome to <strong>KIIT Quest</strong>. This Privacy Policy explains how <strong>Abhishek Dhal</strong> ("we," "us," "our," or "Developer") collects, uses, stores, and protects your personal information when you use the KIIT Quest mobile application (the "App"). We are committed to protecting your privacy and ensuring transparency in how we handle your data.
+            </p>
+            
+            <div class="info-box">
+                <strong>📱 App Overview:</strong> KIIT Quest is an academic resource platform designed exclusively for KIIT University students, providing access to Previous Year Questions (PYQs), study materials, and AI-powered academic assistance.
+            </div>
+
+            <h2>1. Information We Collect</h2>
+            
+            <h3>1.1 Personal Information You Provide</h3>
+            <p>When you register and use KIIT Quest, we collect the following information:</p>
+            <ul>
+                <li><strong>Name:</strong> Your full name as registered with KIIT University</li>
+                <li><strong>Email Address:</strong> Your official KIIT University email address (for verification and communication)</li>
+                <li><strong>Phone Number:</strong> Your mobile phone number</li>
+                <li><strong>Academic Information:</strong> School/Department, Engineering Branch, Current Semester</li>
+                <li><strong>Password:</strong> Securely hashed and encrypted for authentication</li>
+            </ul>
+
+            <h3>1.2 Automatically Collected Information</h3>
+            <ul>
+                <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers</li>
+                <li><strong>Usage Data:</strong> App features accessed, interaction patterns, time spent in app</li>
+                <li><strong>Log Data:</strong> IP address, crash reports, performance data</li>
+                <li><strong>Analytics Data:</strong> Aggregated and anonymized usage statistics</li>
+            </ul>
+
+            <h3>1.3 Information from Third-Party Services</h3>
+            <p>We may receive information from:</p>
+            <ul>
+                <li><strong>Authentication Services:</strong> If you sign in using third-party authentication</li>
+                <li><strong>Cloud Storage Providers:</strong> MongoDB Atlas for database hosting</li>
+                <li><strong>AI Services:</strong> Anonymous queries sent to AI providers for KIIT Mitra responses</li>
+            </ul>
+
+            <h2>2. How We Use Your Information</h2>
+            
+            <p>We use your information for the following purposes:</p>
+            
+            <h3>2.1 Core App Functionality</h3>
+            <ul>
+                <li>✅ Verify your identity as a KIIT University student</li>
+                <li>✅ Create and manage your user account</li>
+                <li>✅ Filter and deliver branch-specific and semester-specific academic content</li>
+                <li>✅ Provide personalized PYQs and study materials</li>
+                <li>✅ Enable KIIT Mitra AI assistant to answer your academic queries</li>
+            </ul>
+
+            <h3>2.2 Communication</h3>
+            <ul>
+                <li>📧 Send important academic updates and notices</li>
+                <li>📧 Respond to your support requests and inquiries</li>
+                <li>📧 Notify you about app updates and new features</li>
+            </ul>
+
+            <h3>2.3 App Improvement</h3>
+            <ul>
+                <li>📊 Analyze usage patterns to improve user experience</li>
+                <li>📊 Debug technical issues and fix bugs</li>
+                <li>📊 Develop new features based on user needs</li>
+            </ul>
+
+            <h3>2.4 Security and Compliance</h3>
+            <ul>
+                <li>🔒 Prevent fraud and unauthorized access</li>
+                <li>🔒 Enforce our Terms of Service</li>
+                <li>🔒 Comply with legal obligations</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>🛡️ Our Privacy Commitment:</strong> We will NEVER sell, rent, trade, or share your personal information with third parties for marketing purposes. Your data is used exclusively for providing and improving the KIIT Quest academic experience.
+            </div>
+
+            <h2>3. Data Storage and Security</h2>
+            
+            <h3>3.1 How We Protect Your Data</h3>
+            <ul>
+                <li>🔐 <strong>Encryption:</strong> All data transmission uses HTTPS/TLS 1.3 encryption</li>
+                <li>🔐 <strong>Password Security:</strong> Passwords are hashed using bcrypt with salt</li>
+                <li>🔐 <strong>Secure Database:</strong> Data stored in MongoDB Atlas with enterprise-grade security</li>
+                <li>🔐 <strong>Access Control:</strong> Strict authentication and authorization protocols</li>
+                <li>🔐 <strong>Regular Security Audits:</strong> Periodic security assessments and updates</li>
+            </ul>
+
+            <h3>3.2 Data Location</h3>
+            <p>Your data is stored on secure servers provided by MongoDB Atlas. These servers may be located in various geographic regions, but all comply with industry-standard security practices.</p>
+
+            <div class="warning-box">
+                <strong>⚠️ Important Security Note:</strong> While we implement robust security measures, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security, but we continuously work to protect your information using industry best practices.
+            </div>
+
+            <h2>4. Data Sharing and Third Parties</h2>
+            
+            <p>We may share your information only in the following limited circumstances:</p>
+
+            <h3>4.1 Service Providers</h3>
+            <p>We work with trusted third-party service providers who assist us in operating the app:</p>
+            <ul>
+                <li><strong>Cloud Hosting:</strong> MongoDB Atlas (database hosting)</li>
+                <li><strong>AI Services:</strong> AI API providers for KIIT Mitra functionality (queries are anonymized)</li>
+                <li><strong>Analytics:</strong> Aggregated usage analytics (no personal identification)</li>
+            </ul>
+            <p>These providers are contractually bound to protect your data and use it only for specified purposes.</p>
+
+            <h3>4.2 Legal Requirements</h3>
+            <p>We may disclose your information if required by law, court order, or government regulation, or to:</p>
+            <ul>
+                <li>Protect our legal rights</li>
+                <li>Prevent illegal activities or fraud</li>
+                <li>Ensure user safety</li>
+            </ul>
+
+            <h3>4.3 Business Transfers</h3>
+            <p>In the event of a merger, acquisition, or sale of assets, your data may be transferred. You will be notified of any such change.</p>
+
+            <h2>5. Your Privacy Rights and Controls</h2>
+            
+            <h3>5.1 Access and Update</h3>
+            <ul>
+                <li>✏️ You can view and update your profile information anytime within the app</li>
+                <li>✏️ Access your academic preferences and settings</li>
+            </ul>
+
+            <h3>5.2 Account Deletion</h3>
+            <p>You have the right to delete your account and all associated data at any time:</p>
+            
+            <div class="info-box">
+                <strong>Option 1: In-App Deletion (Recommended)</strong><br>
+                1. Open KIIT Quest app<br>
+                2. Go to Profile/Settings<br>
+                3. Select "Delete Account"<br>
+                4. Confirm deletion<br>
+                <br>
+                ⚡ <em>Your account and all data will be permanently removed within 24 hours.</em>
+            </div>
+
+            <div class="info-box">
+                <strong>Option 2: Manual Request</strong><br>
+                If you cannot access the app, you can request deletion by:<br>
+                • Visiting our Account Deletion Page: <a href="deletion.html" class="button-link" style="padding:6px 12px; font-size:0.95em; display:inline-block; vertical-align:middle;">Open Account Deletion Page</a><br>
+                • Emailing us at: <a href="mailto:kiitquest@gmail.com">kiitquest@gmail.com</a><br>
+                <br>
+                ⏱️ <em>We will process your request within 30 days.</em>
+            </div>
+
+            <h3>5.3 Data Portability</h3>
+            <p>You can request a copy of your data in a portable format. Contact us at the email below.</p>
+
+            <h3>5.4 Opt-Out of Communications</h3>
+            <p>You can opt-out of non-essential communications through app settings or by following unsubscribe instructions in emails.</p>
+
+            <h2>6. Data Retention</h2>
+            
+            <p>We retain your information only as long as necessary:</p>
+            <ul>
+                <li><strong>Active Accounts:</strong> Data retained while your account is active</li>
+                <li><strong>Deleted Accounts:</strong> Data permanently deleted within 30 days of account deletion</li>
+                <li><strong>Legal Requirements:</strong> Some data may be retained longer if required by law</li>
+                <li><strong>Anonymized Data:</strong> Aggregated, non-identifiable analytics may be retained indefinitely</li>
+            </ul>
+
+            <h2>7. Children's Privacy</h2>
+            
+            <p>KIIT Quest is intended for university students aged 18 and above. We do not knowingly collect information from individuals under 18. If you are under 18, please do not use this app or provide any personal information.</p>
+            
+            <p>If we discover that we have collected information from someone under 18, we will delete it immediately. If you believe we have such information, please contact us.</p>
+
+            <h2>8. International Data Transfers</h2>
+            
+            <p>Your information may be transferred to and processed in countries other than India. These countries may have different data protection laws. By using KIIT Quest, you consent to such transfers. We ensure appropriate safeguards are in place to protect your data.</p>
+
+            <h2>9. Cookies and Tracking Technologies</h2>
+            
+            <p>The KIIT Quest mobile app may use:</p>
+            <ul>
+                <li><strong>Session Data:</strong> Temporary data to maintain your login session</li>
+                <li><strong>Local Storage:</strong> Cached data for faster performance</li>
+                <li><strong>Analytics:</strong> Anonymized usage tracking to improve the app</li>
+            </ul>
+            <p>You can clear cached data through your device settings, though this may affect app functionality.</p>
+
+            <h2>10. Changes to This Privacy Policy</h2>
+            
+            <p>We may update this Privacy Policy from time to time to reflect:</p>
+            <ul>
+                <li>Changes in our practices</li>
+                <li>New features or functionality</li>
+                <li>Legal or regulatory requirements</li>
+            </ul>
+            
+            <p>When we make changes:</p>
+            <ul>
+                <li>✅ We will update the "Effective Date" at the top</li>
+                <li>✅ Significant changes will be notified via in-app notification or email</li>
+                <li>✅ The updated policy will be posted on this page</li>
+            </ul>
+            
+            <p>Your continued use of KIIT Quest after changes indicates acceptance of the updated policy.</p>
+
+            <h2>11. Contact Us & Support</h2>
+            
+            <div class="contact-card">
+                <h3>📬 Get in Touch</h3>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+                
+                <div class="contact-info">
+                    <strong>Email:</strong>&nbsp;<a href="mailto:kiitquest@gmail.com">kiitquest@gmail.com</a>
+                </div>
+                
+                <div class="contact-info">
+                    <strong>Developer:</strong>&nbsp;Abhishek Dhal
+                </div>
+                
+                <div class="contact-info">
+                    <strong>Response Time:</strong>&nbsp;We aim to respond within 48-72 hours
+                </div>
+                
+                    <p style="margin-top: 20px;">
+                    <a href="deletion.html" class="button-link">Request Data Deletion</a>
+                    </p>
+            </div>
+
+            <h2>12. Additional Legal Information</h2>
+            
+            <h3>12.1 Governing Law</h3>
+            <p>This Privacy Policy is governed by the laws of India. Any disputes will be subject to the exclusive jurisdiction of courts in Odisha, India.</p>
+
+            <h3>12.2 Severability</h3>
+            <p>If any provision of this Privacy Policy is found to be unenforceable, the remaining provisions will continue in full effect.</p>
+
+            <h3>12.3 No Waiver</h3>
+            <p>Our failure to enforce any right or provision of this Privacy Policy will not constitute a waiver of such right or provision.</p>
+
+            
+        </div>
+        
+        <div class="footer">
+            <p><strong>&copy; 2026 Abhishek Dhal. All Rights Reserved.</strong></p>
+            <p>KIIT Quest is an independent academic resource platform.</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                Last Updated: January 1, 2026 | Version 1.0
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - KIIT Quest</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f7f9; }
+        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: #1a237e; border-bottom: 2px solid #e8eaf6; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #2980b9; margin-top: 25px; font-size: 1.4em; }
+        .effective-date { color: #5e35b1; font-weight: bold; background: #e8eaf6; padding: 8px 15px; border-radius: 6px; display: inline-block; margin-bottom: 20px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        p { margin-bottom: 15px; }
+        .highlight { color: #1a237e; font-weight: 600; }
+        .footer { margin-top: 40px; font-size: 0.9em; color: #7f8c8d; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+        .action-link { color: #1a237e; font-weight: bold; text-decoration: none; border-bottom: 1px solid #1a237e; }
+        .action-link:hover { color: #2980b9; border-color: #2980b9; }
+        
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Privacy Policy: KIIT Quest</h1>
+        <p class="effective-date">Effective Date: January 1, 2026</p>
+        
+        <p>This Privacy Policy describes how <strong>Abhishek Dhal</strong> ("we," "us," or "our") manages user information for the <strong>KIIT Quest</strong> mobile application. We are committed to protecting your privacy and ensuring you have a secure academic experience.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>To provide a personalized academic journey, we collect the following information:</p>
+        <ul>
+            <li><strong>Identity Data:</strong> Full Name and Phone Number.</li>
+            <li><strong>Institutional Data:</strong> Your official KIIT Email address (used for verification).</li>
+            <li><strong>Academic Profile:</strong> Your School/Department, Engineering Branch, and current Semester.</li>
+            <li><strong>Technical Data:</strong> Basic device information (model and OS version) to help us troubleshoot and improve app performance.</li>
+        </ul>
+
+        <h2>2. How We Use Your Data</h2>
+        <p>We use your information strictly for academic purposes:</p>
+        <ul>
+            <li>To verify that you are a student of KIIT University.</li>
+            <li>To filter <strong>Previous Year Questions (PYQs)</strong> and study materials specific to your branch and semester.</li>
+            <li>To provide contextual assistance through our AI assistant, <strong>KIIT Mitra</strong>.</li>
+            <li>To send official notices and academic updates.</li>
+        </ul>
+        <p><span class="highlight">Privacy Guarantee:</span> We do not sell, rent, or trade your personal information to third parties for marketing or any other purposes.</p>
+
+        <h2>3. Data Storage and Security</h2>
+        <p>Your data is stored securely using <strong>MongoDB</strong> and is transmitted using industry-standard <strong>HTTPS/TLS encryption</strong>. While we strive to use commercially acceptable means to protect your personal information, no method of transmission over the internet is 100% secure.</p>
+
+        <h2>4. Third-Party Services</h2>
+        <p>We may employ third-party companies and individuals (such as AI API providers and database hosting) to facilitate our service. These third parties have access to your info only to perform specific tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+
+        <h2>5. Your Rights: Data Retention & Deletion</h2>
+        <p>We believe you should have total control over your data. We only keep your information for as long as your account is active.</p>
+        <ul>
+            <li><strong>In-App Deletion:</strong> You can permanently delete your account via the Profile page. This action instantly removes your profile, authentication records, and all associated data from our database.</li>
+            <li><strong>Manual Request:</strong> If you can no longer access the app, you may visit our <a class="action-link" href="deletion.html">Account Deletion Request Page</a> or email us.</li>
+        </ul>
+
+        <h2>6. Changes to This Policy</h2>
+        <p>We may update our Privacy Policy from time to time. Any changes will be notified to you by posting the new Privacy Policy on this page and updating the "Effective Date" at the top.</p>
+
+        <h2>7. Contact Us</h2>
+        <p>For any questions regarding this privacy policy or your data, please reach out to us:</p>
+        <p>
+            <strong>Email:</strong> <a href="mailto:kiitquest@gmail.com" style="text-decoration: none; color: #2980b9;">kiitquest@gmail.com</a>
+        </p>
+
+        <div class="footer">
+            &copy; 2026 Abhishek Dhal. All rights reserved. <br>
+            KIIT Quest is an independent academic resource platform.
+        </div>
+    </div>
+</body>
+</html> -->

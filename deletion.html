@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion - KIIT Quest</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 700px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: "⚠️";
+            font-size: 60px;
+            display: block;
+            margin-bottom: 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .warning-banner {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+        
+        .warning-banner strong {
+            color: #856404;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .warning-banner p {
+            color: #856404;
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        .intro-text {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        .method-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .method-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .method-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .method-title {
+            color: #1a1a1a;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .method-description {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .steps-list {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .steps-list ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .steps-list li {
+            color: #333;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .steps-list li strong {
+            color: #667eea;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .icon {
+            margin-right: 8px;
+        }
+        
+        .data-removal-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #2196f3;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .data-removal-box h3 {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .data-removal-box ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+        
+        .data-removal-box li {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .data-removal-box li::marker {
+            color: #2196f3;
+        }
+        
+        .timeline-box {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .timeline-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .timeline-text strong {
+            color: #333;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .note-box {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            color: #495057;
+            font-size: 0.95em;
+        }
+        
+        .note-box strong {
+            color: #343a40;
+        }
+        
+        .footer-nav {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .footer-nav a:hover {
+            background: #e9ecef;
+            color: #764ba2;
+        }
+        
+        .support-box {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border: 2px solid #667eea30;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .support-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .support-box p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .support-box a {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .support-box a:hover {
+            border-bottom-color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .method-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Delete Your Account</h1>
+            <p class="subtitle">Permanent Account & Data Removal</p>
+        </div>
+        
+        <div class="content">
+            <div class="warning-banner">
+                <strong>⚠️ This Action is Permanent and Irreversible</strong>
+                <p>Once your account is deleted, all your data will be permanently removed from our servers. This cannot be undone. Please make sure you want to proceed before taking action.</p>
+            </div>
+            
+            <p class="intro-text">
+                At <strong>KIIT Quest</strong>, we respect your privacy and your right to control your personal data. You can delete your account and all associated information at any time using one of the two methods below:
+            </p>
+
+            <!-- Method 1: In-App Deletion -->
+            <div class="method-card">
+                <div class="method-number">1</div>
+                <span class="method-title">✅ Instant In-App Deletion (Recommended)</span>
+                <p class="method-description">
+                    This is the fastest and easiest way to delete your account. You can do this directly from within the KIIT Quest app in just a few taps.
+                </p>
+                
+                <div class="steps-list">
+                    <strong>📱 Steps to Delete:</strong>
+                    <ol>
+                        <li>Open the <strong>KIIT Quest</strong> app</li>
+                        <li>Go to <strong>Profile</strong> or <strong>Settings</strong></li>
+                        <li>Scroll down to find <strong>"Delete Account"</strong></li>
+                        <li>Tap the button and confirm your decision</li>
+                        <li>Your account will be <strong>instantly deleted</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="timeline-box">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">⚡</div>
+                        <div class="timeline-text">
+                            <strong>Immediate Effect</strong>
+                            Your data is removed from our live database instantly
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🔒</div>
+                        <div class="timeline-text">
+                            <strong>Complete Removal</strong>
+                            All personal information and academic data permanently deleted
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">✓</div>
+                        <div class="timeline-text">
+                            <strong>No Recovery</strong>
+                            Once deleted, your account cannot be restored
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Method 2: Email Request -->
+            <div class="method-card">
+                <div class="method-number">2</div>
+                <span class="method-title">📧 Email Deletion Request</span>
+                <p class="method-description">
+                    If you no longer have access to the KIIT Quest app or prefer to request deletion via email, you can use this method. You must send the request from your registered KIIT email address for verification.
+                </p>
+                
+                <div class="steps-list">
+                    <strong>📝 How to Request:</strong>
+                    <ol>
+                        <li>Click the button below to open your email client</li>
+                        <li>Send from your <strong>registered KIIT email</strong> (@kiit.ac.in)</li>
+                        <li>Include your <strong>full name</strong> and <strong>phone number</strong> for verification</li>
+                        <li>Wait for confirmation (we'll respond within 48-72 hours)</li>
+                    </ol>
+                </div>
+                
+                <a href="mailto:kiitquest@gmail.com?subject=KIIT%20Quest%20-%20Account%20Deletion%20Request&body=Hello%20KIIT%20Quest%20Team%2C%0D%0A%0D%0AI%20am%20requesting%20the%20permanent%20deletion%20of%20my%20account%20and%20all%20associated%20data.%0D%0A%0D%0AAccount%20Details%3A%0D%0A-%20Full%20Name%3A%20%5BYour%20Name%5D%0D%0A-%20Email%3A%20%5BThis%20email%20address%5D%0D%0A-%20Phone%20Number%3A%20%5BYour%20Phone%5D%0D%0A%0D%0AI%20understand%20that%3A%0D%0A-%20This%20action%20is%20permanent%20and%20irreversible%0D%0A-%20All%20my%20personal%20data%20and%20academic%20history%20will%20be%20deleted%0D%0A-%20I%20cannot%20recover%20my%20account%20after%20deletion%0D%0A%0D%0AThank%20you." 
+                   class="btn-primary">
+                    <span class="icon">✉️</span> Send Deletion Request Email
+                </a>
+                
+                <div class="note-box">
+                    <strong>⏱️ Processing Time:</strong> Manual deletion requests via email are typically processed within <strong>48-72 hours</strong>. You will receive a confirmation email once your account has been successfully deleted.
+                </div>
+            </div>
+
+            <!-- What Gets Deleted -->
+            <div class="data-removal-box">
+                <h3>🗑️ What Data Will Be Permanently Removed?</h3>
+                <ul>
+                    <li><strong>Personal Information:</strong> Full Name, Phone Number, Email Address</li>
+                    <li><strong>Academic Profile:</strong> School/Department, Engineering Branch, Semester</li>
+                    <li><strong>Authentication Data:</strong> Password (hashed), Login Sessions, Tokens</li>
+                    <li><strong>Usage History:</strong> App activity, preferences, and interaction data</li>
+                    <li><strong>All Saved Content:</strong> Bookmarks, favorites, and custom settings</li>
+                </ul>
+            </div>
+
+            <div class="note-box">
+                <strong>📊 Note on Anonymized Data:</strong> Some aggregated, non-identifiable analytics data may be retained for statistical purposes and app improvement. This data cannot be linked back to you and does not contain any personal information.
+            </div>
+
+            <!-- Support Section -->
+            <div class="support-box">
+                <h3>💬 Need Help or Have Questions?</h3>
+                <p>If you're facing any issues with the app or have questions before deleting your account, please reach out to us:</p>
+                <p><strong>Email:</strong> <a href="mailto:kiitquest@gmail.com">kiitquest@gmail.com</a></p>
+                <p style="margin-bottom: 0; font-size: 0.9em; color: #777;">We typically respond within 48-72 hours</p>
+            </div>
+        </div>
+        
+        <div class="footer-nav">
+            <a href="index.html">← Back to Privacy Policy</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion - KIIT Quest</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 550px; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #d32f2f; margin-bottom: 10px; font-size: 1.8em; }
+        .warning-text { color: #e53e3e; font-weight: bold; margin-bottom: 20px; }
+        p { color: #555; line-height: 1.6; margin-bottom: 20px; text-align: left; }
+        
+        .method-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; margin-bottom: 20px; text-align: left; }
+        .method-title { font-weight: bold; color: #1a237e; display: block; margin-bottom: 8px; font-size: 1.1em; }
+        
+        .data-box { background: #fff5f5; border-left: 4px solid #feb2b2; padding: 15px; border-radius: 4px; text-align: left; margin: 20px 0; }
+        .data-box ul { margin: 10px 0 0 20px; padding: 0; font-size: 0.95em; }
+        
+        .btn { display: inline-block; background: #1a237e; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s; margin-top: 10px; width: 100%; box-sizing: border-box; }
+        .btn:hover { background: #0d124d; }
+        
+        .back-link { display: block; margin-top: 25px; color: #7f8c8d; text-decoration: none; font-size: 0.9em; border-bottom: 1px solid transparent; display: inline-block; }
+        .back-link:hover { border-color: #7f8c8d; }
+        
+        @media (max-width: 480px) {
+            .container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Your Account</h1>
+        <p class="warning-text">Important: This action is permanent and irreversible.</p>
+        
+        <p>At <strong>KIIT Quest</strong>, we respect your privacy and your right to control your data. There are two ways to remove your account and all associated information:</p>
+
+        <div class="method-card">
+            <span class="method-title">1. Instant Deletion (Via App)</span>
+            <p style="margin-bottom: 0; font-size: 0.95em;">
+                Open the app, go to your <strong>Profile Page</strong>, and scroll to the bottom. Tap <strong>"Delete Account"</strong>. This will instantly and permanently wipe your data from our live database.
+            </p>
+        </div>
+
+        <div class="method-card">
+            <span class="method-title">2. Web Request (If app is uninstalled)</span>
+            <p style="margin-bottom: 15px; font-size: 0.95em;">
+                If you no longer have the app installed, you can request manual deletion by clicking the button below. You must send the email from your <strong>registered KIIT email address</strong>.
+            </p>
+            <a href="mailto:kiitquest@gmail.com?subject=KIIT%20Quest%20Account%20Deletion%20Request&body=Please%20delete%20my%20account%20associated%20with%20this%20email%20address.%20I%20understand%20that%20this%20will%20permanently%20remove%20my%20profile%20and%20academic%20history." class="btn">Email Deletion Request</a>
+        </div>
+
+        <div class="data-box">
+            <strong>What data will be removed?</strong>
+            <ul>
+                <li>Personal Profile (Name, Phone, Email)</li>
+                <li>Academic Preferences (Branch, Semester, School)</li>
+                <li>Authentication Records and Session Data</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 0.85em; color: #888;">Note: Manual requests via email may take up to 48-72 hours to process.</p>
+        
+        <a href="index.html" class="back-link">← Back to Privacy Policy</a>
+    </div>
+</body>
+</html> -->
